@@ -11,13 +11,13 @@ FROM Actor;
 
 SELECT concat(UPPER(last_name) , '.', UPPER(LEFT(first_name , 1))) AS Actor_Name_full_name
 FROM Actor;
-
+-- 5- Trouver le ou les acteurs appelé(s) "JENNIFER"
 SELECT * FROM Actor
 WHERE first_name = "JENNIFER";
-
+-- 6- Trouver les acteurs ayant des prénoms de 3 charactères.
 SELECT * FROM actor
 WHERE length(first_name) = 3;
-
+-- 7- Afficher les acteurs (actor_id, first_name, last_name, nbre char first_name, nbre char last_name )par ordre décroissant de longueur de prénoms
 SELECT actor_id, first_name, last_name , length(first_name) AS nbre_char_first_name, length(last_name) AS nbre_char_last_name
 FROM actor
 ORDER BY length(first_name) DESC;
@@ -25,13 +25,13 @@ ORDER BY length(first_name) DESC;
 SELECT actor_id, first_name, last_name , length(first_name) AS nbre_char_first_name, length(last_name) AS nbre_char_last_name
 FROM actor
 ORDER BY length(first_name) DESC, length(last_name) ASC;
-
+-- 9- Trouver les acteurs ayant dans leurs last_names la chaine: "SON
 SELECT * From actor
 WHERE last_name LIKE '%SON%';
-
+-- 10- Trouver les acteurs ayant des last_names commençant par la chaine: "JOH"
 SELECT * From actor
 WHERE last_name LIKE 'JOH%';
-
+-- 11- Afficher par ordre alphabétique croissant les last_names et les first_names des acteurs ayant dans leurs last_names la chaine "LI"
 SELECT first_name , last_name
 FROM actor
 WHERE last_name LIKE '%LI%'
