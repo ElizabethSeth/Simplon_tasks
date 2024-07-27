@@ -4,7 +4,7 @@ import datetime
 
 app = Flask(__name__)
 
-API_KEY = '40ff5ede1101ddc6e4a3f0f819eded84'
+API_KEY = 'put_yours_api'
 
 @app.template_filter('datetimeformat')
 def datetimeformat(value):
