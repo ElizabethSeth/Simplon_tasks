@@ -1,0 +1,87 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+}
+
+header {
+    background: #ddc571;
+    color: #fff;
+    padding-top: 30px;
+    min-height: 70px;
+    border-bottom: #ddc571 3px solid;
+}
+
+header h1 {
+    text-align: center;
+    margin: 0;
+    font-size: 36px;
+}
+
+nav {
+    margin-top: 20px;
+    text-align: center;
+}
+
+nav a {
+    margin: 0 15px;
+    color: #333;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+main {
+    background: #fff;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.weather-summary, .weather-details, .forecast-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.weather-summary p, .weather-details p, .forecast-entry {
+    background: #e2e2e2;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+form {
+    text-align: center;
+    margin-top: 20px;
+}
+
+form input[type="text"] {
+    padding: 10px;
+    font-size: 16px;
+}
+
+form button {
+    padding: 10px 15px;
+    font-size: 16px;
+    background: #ddc571;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+form button:hover {
+    background: #5c94b6;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background: #ccc;
+    margin: 20px 0;
+}

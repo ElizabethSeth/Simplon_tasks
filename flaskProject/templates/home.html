@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block title %}Accueil{% endblock %}
+
+{% block header %}Météo pour {{ city }}{% endblock %}
+
+{% block content %}
+    {% if weather %}
+        <div class="weather-summary">
+            <p>Température : {{ weather.main.temp }}°C</p>
+            <p>Temps : {{ weather.weather[0].description }}</p>
+            <p>Humidité : {{ weather.main.humidity }}%</p>
+            <p>Vent : {{ weather.wind.speed }} m/s</p>
+        </div>
+    {% else %}
+        <p>Désolé, les données météorologiques pour {{ city }} ne sont pas disponibles.</p>
+    {% endif %}
+
+    <form method="get" action="/">
+        <label for="city">Ville :</label>
+        <input type="text" id="city" name="city" value="{{ city }}">
+        <button type="submit">Rechercher</button>
+    </form>
+{% endblock %}
