@@ -1,1 +1,1 @@
-Tasks for Simplon
+Utilisation de l'API d'OpenWeatherMap
