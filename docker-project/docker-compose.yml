@@ -1,0 +1,91 @@
+version: '3.8'
+
+services:
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb
+    volumes:
+      - ./data/mongo_data:/data/db
+    ports:
+      - "27017:27017"
+
+  mongo-express:
+    image: mongo-express:latest
+    container_name: mongo-express
+    ports:
+      - "8081:8081"
+    depends_on:
+      - mongodb
+    environment:
+      - ME_CONFIG_MONGODB_SERVER=mongodb
+
+  flask:
+    build: ./flask_app
+    container_name: flask
+    ports:
+      - "5000:5000"
+    depends_on:
+      - mongodb
+
+  streamlit:
+    build: ./streamlit_app
+    container_name: streamlit
+    ports:
+      - "8501:8501"
+    depends_on:
+      - flask
+
+  jupyter:
+    build: ./jupyter
+    container_name: jupyter
+    ports:
+      - "8887:8888"
+    volumes:
+      - ./jupyter/notebooks:/app/notebooks
+    depends_on:
+      - mongodb
+
+# version: '3.8'
+
+# services:
+#   mongodb:
+#     image: mongo:latest
+#     container_name: mongodb
+#     volumes:
+#       - ./data/mongo_data:/data/db
+#     ports:
+#       - "27017:27017"
+
+#   mongo-express:
+#     image: mongo-express:latest
+#     container_name: mongo-express
+#     ports:
+#       - "8081:8081"
+#     depends_on:
+#       - mongodb
+
+#   flask:
+#     build: ./flask_app
+#     container_name: flask
+#     ports:
+#       - "5000:5000"
+#     depends_on:
+#       - mongodb
+
+#   streamlit:
+#     build: ./streamlit_app
+#     container_name: streamlit
+#     ports:
+#       - "8501:8501"
+#     depends_on:
+#       - flask
+
+#   jupyter:
+#     build: ./jupyter
+#     container_name: jupyter
+#     ports:
+#       - "8887:8888"
+#     volumes:
+#       - ./jupyter/notebooks:/app/notebooks
+#     depends_on:
+#       - mongodb
